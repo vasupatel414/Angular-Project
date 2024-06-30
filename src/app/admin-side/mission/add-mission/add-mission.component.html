@@ -31,7 +31,22 @@
                       </span>
                     </div>
                   </div>
-                  
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label class="col-form-label">Mission Title</label>
+                      <input type="text" class="form-control" placeholder="Enter Mission Title" formControlName="missionTitle">
+                      <span class="text-danger" *ngIf="missionTitle.invalid && (missionTitle.touched || formValid)">
+                        Please Enter Mission Title
+                      </span>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="col-form-label">Mission Theme</label>
+                      <input type="text" class="form-control" placeholder="Enter Mission Theme" formControlName="missionThemeId">
+                      <span class="text-danger" *ngIf="missionThemeId.invalid && (missionThemeId.touched || formValid)">
+                        Please Enter Mission Theme
+                      </span>
+                    </div>
+                  </div>
                    <div class="row">
                     <div class="col-sm-6">
                       <label class="col-form-label">Mission Description</label>

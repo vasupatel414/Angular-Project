@@ -28,16 +28,21 @@
              <tbody>
               <ng-container *ngIf="(missionSkillList | filter:searchText | paginate :{ itemsPerPage: itemsPerPages, currentPage: page })as result">
                 <tr *ngFor="let item of result">
-                 <td>{{item.skillName}}</td>
-                 <td style="text-align: right;color:#14c506;" [ngStyle]="item.status == 'active' ? {'color': '#14c506'} : {'color': '#ff0000'}">{{item.status == 'active' ? 'Active' : 'In-Active'}}</td>
-                 <td style="text-align: right;">
-
-                 </td>
-               </tr>
+                  <td>{{item.skillName}}</td>
+                  <td style="text-align: right;color:#14c506;" [ngStyle]="item.status == 'active' ? {'color': '#14c506'} : {'color': '#ff0000'}">{{item.status == 'active' ? 'Active' : 'In-Active'}}</td>
+                  <td style="text-align: right;">
+                    <button class="btnEdit" (click)="(item.id)"><i class="fa fa-edit"></i> Edit</button>
+                    <button class="btnDelete" data-toggle="modal" data-target="#removeMissionSkillModal" (click)="deleteSkillmodal(item.id)"><i class="fa fa-trash"></i> Delete</button>
+                  </td>
+                  
+                </tr>
                <tr *ngIf="result.length === 0">
                 <td colspan="6" style="text-align:center;width:100%;font-size:20px;color: red;"><b>No Data Found </b> </td>
+
               </tr>
+
               </ng-container>
+
              </tbody>
            </table>
            </div>
